@@ -1,0 +1,22 @@
+global:
+  screen:
+    size: [800, 600]
+    full_screen: True
+    background_color: [-1, -1, -1]
+    gamma_scale: [2.475,2.25,2.15]
+    physical_screen_size: [36, 27]
+    physical_screen_distance: 50
+    max_lums: [24.52, 78.8, 10.19]
+    wait_blanking: True
+    mouse_visible: False
+    screen_nr: 2
+    framerate: 60
+
+  stimuli:
+    rotations_per_second: .5
+    cycles_per_degree: .5
+    size: 15
+    rim_ratio: 1.1
+    rim_n_parts: 16
+    rim_contrast: .5
+    fixation_proportion: 0.05
