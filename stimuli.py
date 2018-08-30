@@ -286,21 +286,11 @@ class FixationPoint(object):
 
         self.screen = win
 
-        self.fixation_stim1 = GratingStim(win,
-                                          sf=0,
-                                          color=[1, 1, 1],
-                                          mask='circle',
-                                          pos=pos,
-                                          size=size)
-        self.fixation_stim1.blendmode = 'avg'
+        self.fixation_stim1 = TextStim(win,
+                                       '+',
+                                       height=size)
 
-        self.fixation_stim2 = GratingStim(win,
-                                          sf=0,
-                                          color=[-1, -1, -1],
-                                          mask='circle',
-                                          pos=pos,
-                                          size=0.66*size)
-        self.fixation_stim2.blendmode = 'avg'
+        self.fixation_stim1.blendmode = 'avg'
 
 
     def draw(self):
