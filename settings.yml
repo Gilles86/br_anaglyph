@@ -1,7 +1,7 @@
 global:
   screen:
-    size: [800, 600]
-    full_screen: True
+    size: [1680, 1050]
+    full_screen: False
     background_color: [-1, -1, -1]
     gamma_scale: [2.475,2.25,2.15]
     physical_screen_size: [36, 27]
@@ -20,3 +20,11 @@ global:
     rim_n_parts: 16
     rim_contrast: .5
     fixation_proportion: 0.05
+    duration_trial: 20
+    n_trials: 3
+
+  keys:
+    red: z
+    green: m
+    mixed: x
+

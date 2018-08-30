@@ -2,7 +2,7 @@ from exptools.core.session import Session
 from psychopy.visual import GratingStim
 from psychopy import filters
 from stimuli import StimulusSet
-from trial import BRAnaglyphTrial
+from trial import BRAnaglyphTrial, IntroTrial, PauseTrial
 import numpy as np
 import glob
 import pandas as pd
@@ -18,8 +18,19 @@ class BRAnaglyphSession(Session):
         self.screen.setBlendMode('add')
         
         self.setup_stimuli()
+        
+        self.intro_trial = IntroTrial(session=self)
 
-        self.trial = BRAnaglyphTrial(session=self)
+        self.trials = []
+
+        for i in xrange(self.config.get('stimuli', 'n_trials')):
+            self.trials.append(BRAnaglyphTrial(ID='trial%d' % i,
+                                         session=self))
+
+            if i != self.config.get('stimuli', 'n_trials') - 1:
+                self.trials.append(PauseTrial(ID='pause%d' % i,
+                                              session=self))
+
     
     def setup_stimuli(self):
         grating_res = 256
@@ -58,7 +69,10 @@ class BRAnaglyphSession(Session):
     def run(self):
         """run the session"""
 
-        self.trial.run()
+        self.intro_trial.run()
+
+        for trial in self.trials:
+            trial.run()
 
         self.stop()
         self.close()
