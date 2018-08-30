@@ -14,7 +14,7 @@ class BRAnaglyphTrial(Trial):
                  *args, 
                  **kwargs):
 
-        phase_durations = [10]
+        phase_durations = [session.config.get('stimuli', 'trial_duration')]
 
         super(
             BRAnaglyphTrial,
